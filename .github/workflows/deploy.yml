@@ -1,0 +1,38 @@
+name: Publicare Frontend pe GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Rulează la fiecare push pe branch-ul main
+
+  # Permite rularea manuală din tab-ul Actions > Run workflow
+  workflow_dispatch:
+
+# Permisiuni necesare pentru a publica pe GitHub Pages
+permissions:
+  contents: read
+  pages: write # Permisiune pentru a scrie conținut în pagina Pages
+  id-token: write # Permisiune necesară pentru autentificarea Actions
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Cod Sursă
+        uses: actions/checkout@v4
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Artifact din subfolder
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'frontendAI' 
+
+      - name: Deploy la GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
