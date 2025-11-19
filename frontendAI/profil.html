@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8">
+    <title>Profil</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1.2">
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="profil-welcome">Bun venit!</h1>
+      
+      <p data-lang="prof_desc">Aici ai acces la scorurile tale.</p>
+
+      <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+      <section>
+        <h2 data-lang="prof_scores_title">Scorurile Tale</h2>
+        
+        <table id="scores-table">
+          <thead>
+            <tr>
+              <th data-lang="prof_col_date">Data</th>
+              <th data-lang="prof_col_score">Scor</th>
+              <th data-lang="prof_col_badges">Badge-uri</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="3" data-lang="prof_loading">Se incarca...</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="index.html" class="cta-button" data-lang="prof_btn_back" style="text-decoration: none;">Inapoi</a>
+          <button onclick="simulateLogout()" class="logout-button" data-lang="prof_btn_logout">Logout</button>
+          <button onclick="deleteAccount()" class="delete-account-btn" data-lang="prof_btn_delete">Sterge Contul</button>
+      </div>
+
+    </div>
+
+    <script src="config.js"></script>
+    <script src="lang.js"></script>
+    <script src="tema.js"></script>
+    <script src="auth.js"></script>
+    <script src="profil.js"></script>
+  </body>
+</html>
